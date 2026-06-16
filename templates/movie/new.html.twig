@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Movie{% endblock %}
+{# Page de création d'un nouveau film. #}
+{% block title %}Nouveau film{% endblock %}
 
 {% block body %}
-    <h1>Create new Movie</h1>
+    <h1>Ajouter un film</h1>
 
+    {# On inclut le formulaire partiel qui contient les champs du film. #}
     {{ include('movie/_form.html.twig') }}
 
-    <a href="{{ path('app_movie_index') }}">back to list</a>
+    <a href="{{ path('app_movie_index') }}">Retour à la liste</a>
 {% endblock %}

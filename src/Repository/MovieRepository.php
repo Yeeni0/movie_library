@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repository;
 
 use App\Entity\Movie;
@@ -15,6 +16,7 @@ class MovieRepository extends ServiceEntityRepository
         parent::__construct($registry, Movie::class);
     }
 
+    // Recherche de films par titre avec un LIKE SQL.
     public function findByTitleSearch(string $query): array
     {
         return $this->createQueryBuilder('m')

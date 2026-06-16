@@ -1,4 +1,6 @@
+{# Formulaire utilisé pour la création et l'édition d'un film. #}
 {{ form_start(form) }}
+    {# Génère automatiquement les champs et les labels définis dans MovieType. #}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

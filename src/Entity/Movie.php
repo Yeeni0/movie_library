@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Entity;
+
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\MovieRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+// Cette classe représente un film dans l'application.
+// Elle contient les propriétés qui sont enregistrées en base et les règles de validation.
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 class Movie
 { 
@@ -13,6 +16,7 @@ class Movie
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
     #[Assert\NotBlank(message: "Le titre est obligatoire.")]
     #[ORM\Column(length: 255)]
     private ?string $title = null;
@@ -22,12 +26,13 @@ class Movie
     private ?string $director = null;
 
     #[Assert\NotBlank(message: "L'année de sortie est obligatoire.")]
-   #[Assert\Range(
-    min: 1900,
-    max: 2026,
-    notInRangeMessage: "L'annee doit etre comprise entre {{ 1800 }} et {{ 2027 }}.")]
+    #[Assert\Range(
+        min: 1900,
+        max: 2026,
+        notInRangeMessage: "L'annee doit etre comprise entre {{ 1800 }} et {{ 2027 }}.")]
     #[ORM\Column]
     private ?int $releaseYear = null;
+
     #[Assert\NotBlank(message: "Le synopsis est obligatoire.")]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $synopsis = null;
