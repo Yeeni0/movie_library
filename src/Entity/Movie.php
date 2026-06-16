@@ -32,6 +32,9 @@ class Movie
     #[ORM\Column(type: Types::TEXT)]
     private ?string $synopsis = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $genre = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -81,6 +84,18 @@ class Movie
     public function setSynopsis(string $synopsis): static
     {
         $this->synopsis = $synopsis;
+
+        return $this;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(string $genre): static
+    {
+        $this->genre = $genre;
 
         return $this;
     }

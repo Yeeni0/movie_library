@@ -3,17 +3,16 @@
 {% block title %}Detail du film{% endblock %}
 
 {% block body %}
-    <h1>{{ movie.title }}</h1>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title">{{ movie.title }}</h1>
+            <p class="card-text"><strong>Realisateur :</strong> {{ movie.director }}</p>
+            <p class="card-text"><strong>Annee de sortie :</strong> {{ movie.releaseYear }}</p>
+            <p class="card-text"><strong>Synopsis :</strong> {{ movie.synopsis }}</p>
 
-    <ul>
-        <li><strong>Realisateur :</strong> {{ movie.director }}</li>
-        <li><strong>Annee de sortie :</strong> {{ movie.releaseYear }}</li>
-        <li><strong>Synopsis :</strong> {{ movie.synopsis }}</li>
-    </ul>
-
-    <a href="{{ path('app_movie_edit', {'id': movie.id}) }}">Modifier</a>
-
-    {{ include('movie/_delete_form.html.twig') }}
-
-    <a href="{{ path('app_movie_index') }}">Retour a la liste</a>
+            <a class="btn btn-secondary" href="{{ path('app_movie_edit', {'id': movie.id}) }}">Modifier</a>
+            {{ include('movie/_delete_form.html.twig') }}
+            <a class="btn btn-outline-dark" href="{{ path('app_movie_index') }}">Retour a la liste</a>
+        </div>
+    </div>
 {% endblock %}

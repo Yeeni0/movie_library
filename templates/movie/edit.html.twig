@@ -5,7 +5,10 @@
 {% block body %}
     <h1>Edit Movie</h1>
 
-    {{ include('movie/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ form_start(form, {'attr': {'class': 'row g-3'}}) }}
+    {{ form_widget(form, {'attr': {'class': 'form-control mb-2'}}) }}
+    <button class="btn btn-success mt-2">Enregistrer</button>
+{{ form_end(form) }}
 
     <a href="{{ path('app_movie_index') }}">back to list</a>
 
