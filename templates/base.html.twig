@@ -20,5 +20,9 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-    </body>
+    <nav>
+    <a href="{{ path('app_movie_index') }}">Accueil</a> |
+    <a href="{{ path('app_movie_new') }}">Ajouter un film</a>
+</nav>
+</body>
 </html>
