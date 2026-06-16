@@ -15,10 +15,17 @@ use Symfony\Component\Routing\Attribute\Route;
 final class MovieController extends AbstractController
 {
     #[Route(name: 'app_movie_index', methods: ['GET'])]
-    public function index(MovieRepository $movieRepository): Response
+    public function index(Request $request, MovieRepository $movieRepository): Response
     {
+        $search = trim((string) $request->query->get('q', ''));
+
+        $movies = $search !== ''
+            ? $movieRepository->findByTitleSearch($search)
+            : $movieRepository->findAll();
+
         return $this->render('movie/index.html.twig', [
-            'movies' => $movieRepository->findAll(),
+            'movies' => $movies,
+            'search' => $search,
         ]);
     }
 
